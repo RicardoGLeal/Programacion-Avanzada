@@ -10,66 +10,71 @@ using System.Text;
           Int32 count = 3;
           string[] strlist = str.Split(spearator, count, StringSplitOptions.None);
           Console.WriteLine(strlist[1]);*/
+//Array.ForEach(lines, Console.WriteLine);
+
 namespace Cajero
 {
     class Program
     {
         static void Main(string[] args)
         {
-            String naccount;
-            int accountindex;
+            inicio:
+            String nAccount;
+            int accountIndex;
+
             Console.WriteLine("Bienvenido! Introduce tu Numero de Cuenta");
-            naccount = Convert.ToString(Console.ReadLine());
-            Console.WriteLine("Cuenta: " + naccount);
+            nAccount = Convert.ToString(Console.ReadLine());
+            Console.WriteLine("Cuenta: " + nAccount);
 
             string textfilepath = @"C:\Users\ricar\Documents\GIT\Programacion-Avanzada\ATM\keys.txt";
+            StreamReader freader = new StreamReader(textfilepath);
+
             string[] data = File.ReadAllLines(textfilepath);
 
-            accountindex = 0;
+            accountIndex = 0;
             foreach (string separar in data)
             {
                 string[] separado = separar.Split(',');
-                Console.WriteLine(separado[0]);
-                if (!(naccount == separado[0]))
-                {
-                    Console.WriteLine("Cuenta no encontrada");
-                    accountindex++;
-                }
+                //Console.WriteLine(separado[0]);
+                if (!(nAccount == separado[0]))
+                    accountIndex++;
                 else
                 {
-                    Console.WriteLine("INDICE: " + accountindex + "\n");
-                    Console.WriteLine("Cuenta encontrada");
-                    verifynip(data, accountindex);
+                    //Console.WriteLine("INDICE: " + accountIndex + "\n");
+                    //Console.WriteLine("Cuenta encontrada");
+                    verifynip(data, accountIndex);
                     Console.Read();
                 }
             }
-            foreach (string cuenta in data)
-                Console.WriteLine(cuenta);
-            //Array.ForEach(lines, Console.WriteLine);
-            Console.Read();
+            /*  foreach (string cuenta in data)
+                  Console.WriteLine(cuenta);*/
+            Console.WriteLine("Cuenta no encontrada, intente de nuevo");
+            goto inicio;
         }
-        private static void verifynip(string[] data, int accountindex)
+        private static void verifynip(string[] data, int accountIndex)
         {
             String typednip;
-            Console.WriteLine(data[accountindex]);
+            //Console.WriteLine(data[accountIndex]);
             Console.WriteLine("Introduce tu NIP de acceso");
             typednip = Convert.ToString(Console.ReadLine());
             Console.WriteLine("NIP introducido: " + typednip);
-            string[] splitedaccountinfo = data[accountindex].Split(',', 3, StringSplitOptions.None);
+            string[] splitedaccountinfo = data[accountIndex].Split(',', 3, StringSplitOptions.None);
             Console.WriteLine("NIP real: " + splitedaccountinfo[1]);
             if (typednip == splitedaccountinfo[1])
             {
-                MenuPrincipal(data, splitedaccountinfo, accountindex);
+                MenuPrincipal(data, splitedaccountinfo, accountIndex);
             }
             else
             {
-                Console.WriteLine("NIP Incorrecto");
+                Console.WriteLine("NIP Incorrecto, intente de nuevo");
             }
 
         }
-        private static void MenuPrincipal(string[] data, string[] splitedaccountinfo, int accountindex)
+        private static void MenuPrincipal(string[] data, string[] splitedaccountinfo, int accountIndex)
         {
             int option;
+            int balance = Int32.Parse(splitedaccountinfo[2]);
+
             Console.WriteLine("Introduce una opcion");
             Console.WriteLine("1: Consulta de Saldo");
             Console.WriteLine("2: Retiro de Saldo");
@@ -92,15 +97,39 @@ namespace Cajero
                     Console.WriteLine("5: $200");
                     Console.WriteLine("6: Cancelar Operacion");
                     option = Int32.Parse(Console.ReadLine());
+
+
                     switch (option)
                     {
                         default:
                             break;
+                        case 1: //$20
+                            if (balance < 20)
+                            {
+                                Console.WriteLine("Fondos Insuficientes");
+                            }
+                            else
+                            {
+                                // StreamWriter fwriter = new StreamWriter(textfilepath, true);
+                            }
+                            break;
                         case 2:
+                            if (balance < 40)
+                            {
+                                Console.WriteLine("Fondos Insuficientes");
+                            }
                             break;
                         case 3:
+                            if (balance < 60)
+                            {
+                                Console.WriteLine("Fondos Insuficientes");
+                            }
                             break;
                         case 4:
+                            if (balance < 100)
+                            {
+                                Console.WriteLine("Fondos Insuficientes");
+                            }
                             break;
                         case 5:
                             break;
