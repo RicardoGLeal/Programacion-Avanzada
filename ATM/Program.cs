@@ -1,24 +1,42 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
-using System.Text;
 /*          String str = "15432,6423,93434";
           char[] spearator = { ',' };
           Int32 count = 3;
           string[] strlist = str.Split(spearator, count, StringSplitOptions.None);
           Console.WriteLine(strlist[1]);*/
 //Array.ForEach(lines, Console.WriteLine);
-
 namespace Cajero
 {
+     class Cuenta
+    {
+        private string nAccount;
+        private string nip;
+        private string balance;
+
+        public Cuenta(string nAccount, string nip, string balance)
+        {
+            this.nAccount = nAccount;
+            this.nip = nip;
+            this.balance = balance;
+        }
+
+        public void autenticate()
+        {
+        }
+    }
+
+
     class Program
     {
         static void Main(string[] args)
         {
-            inicio:
+        inicio:
+
             String nAccount;
             int accountIndex;
 
@@ -34,15 +52,13 @@ namespace Cajero
             accountIndex = 0;
             foreach (string separar in data)
             {
-                string[] separado = separar.Split(',');
-                //Console.WriteLine(separado[0]);
+                string[] separado = separar.Split(',');//Guarda en el arreglo todos los numeros de cuenta
                 if (!(nAccount == separado[0]))
                     accountIndex++;
-                else
+                else //Cuenta encontrada
                 {
-                    //Console.WriteLine("INDICE: " + accountIndex + "\n");
-                    //Console.WriteLine("Cuenta encontrada");
-                    verifynip(data, accountIndex);
+                   bool llamar = verifynip(data, accountIndex);
+                    if (!llamar) goto inicio;
                     Console.Read();
                 }
             }
@@ -51,24 +67,27 @@ namespace Cajero
             Console.WriteLine("Cuenta no encontrada, intente de nuevo");
             goto inicio;
         }
-        private static void verifynip(string[] data, int accountIndex)
+        private static bool verifynip(string[] data, int accountIndex)
         {
+
             String typednip;
             //Console.WriteLine(data[accountIndex]);
             Console.WriteLine("Introduce tu NIP de acceso");
             typednip = Convert.ToString(Console.ReadLine());
             Console.WriteLine("NIP introducido: " + typednip);
             string[] splitedaccountinfo = data[accountIndex].Split(',', 3, StringSplitOptions.None);
-            Console.WriteLine("NIP real: " + splitedaccountinfo[1]);
+
+            Cuenta c1 = new Cuenta(splitedaccountinfo[0], splitedaccountinfo[1], splitedaccountinfo[2]);
             if (typednip == splitedaccountinfo[1])
-            {
+            {   
                 MenuPrincipal(data, splitedaccountinfo, accountIndex);
+                return true;
             }
             else
             {
                 Console.WriteLine("NIP Incorrecto, intente de nuevo");
+                return false;
             }
-
         }
         private static void MenuPrincipal(string[] data, string[] splitedaccountinfo, int accountIndex)
         {
@@ -117,6 +136,10 @@ namespace Cajero
                             if (balance < 40)
                             {
                                 Console.WriteLine("Fondos Insuficientes");
+                            }
+                            else
+                            {
+
                             }
                             break;
                         case 3:
