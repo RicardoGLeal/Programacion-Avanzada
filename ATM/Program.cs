@@ -16,9 +16,8 @@ namespace Cajero
     {
         static void Main(string[] args)
         {
-
             String naccount;
-            int searcherpointer;
+            int accountindex;
             Console.WriteLine("Bienvenido! Introduce tu Numero de Cuenta");
             naccount = Convert.ToString(Console.ReadLine());
             Console.WriteLine("Cuenta: " + naccount);
@@ -26,7 +25,7 @@ namespace Cajero
             string textfilepath = @"C:\Users\ricar\Documents\GIT\Programacion-Avanzada\ATM\keys.txt";
             string[] data = File.ReadAllLines(textfilepath);
 
-            searcherpointer = 0;
+            accountindex = 0;
             foreach (string separar in data)
             {
                 string[] separado = separar.Split(',');
@@ -34,31 +33,84 @@ namespace Cajero
                 if (!(naccount == separado[0]))
                 {
                     Console.WriteLine("Cuenta no encontrada");
-                    searcherpointer++;
+                    accountindex++;
                 }
                 else
                 {
-                    Console.WriteLine("INDICE: " + searcherpointer + "\n");
+                    Console.WriteLine("INDICE: " + accountindex + "\n");
                     Console.WriteLine("Cuenta encontrada");
-                    
-
+                    verifynip(data, accountindex);
+                    Console.Read();
                 }
-
             }
             foreach (string cuenta in data)
                 Console.WriteLine(cuenta);
-
-
             //Array.ForEach(lines, Console.WriteLine);
-
-
-
-
-
-            // string[] strlist = lines[1].Split(',', 3, StringSplitOptions.None);
-            //Console.WriteLine(strlist[1]);
-
             Console.Read();
+        }
+        private static void verifynip(string[] data, int accountindex)
+        {
+            String typednip;
+            Console.WriteLine(data[accountindex]);
+            Console.WriteLine("Introduce tu NIP de acceso");
+            typednip = Convert.ToString(Console.ReadLine());
+            Console.WriteLine("NIP introducido: " + typednip);
+            string[] splitedaccountinfo = data[accountindex].Split(',', 3, StringSplitOptions.None);
+            Console.WriteLine("NIP real: " + splitedaccountinfo[1]);
+            if (typednip == splitedaccountinfo[1])
+            {
+                MenuPrincipal(data, splitedaccountinfo, accountindex);
+            }
+            else
+            {
+                Console.WriteLine("NIP Incorrecto");
+            }
+
+        }
+        private static void MenuPrincipal(string[] data, string[] splitedaccountinfo, int accountindex)
+        {
+            int option;
+            Console.WriteLine("Introduce una opcion");
+            Console.WriteLine("1: Consulta de Saldo");
+            Console.WriteLine("2: Retiro de Saldo");
+            Console.WriteLine("3: Deposito");
+            option = Int32.Parse(Console.ReadLine());
+            switch (option)
+            {
+                default:
+                    Console.WriteLine("Opcion no valida");
+                    break;
+                case 1:
+                    Console.WriteLine("Tu saldo es de: $" + splitedaccountinfo[2]);
+                    break;
+                case 2:
+                    Console.WriteLine("Elige el monto a retirar");
+                    Console.WriteLine("1: $20");
+                    Console.WriteLine("2: $40");
+                    Console.WriteLine("3: $60");
+                    Console.WriteLine("4: $100");
+                    Console.WriteLine("5: $200");
+                    Console.WriteLine("6: Cancelar Operacion");
+                    option = Int32.Parse(Console.ReadLine());
+                    switch (option)
+                    {
+                        default:
+                            break;
+                        case 2:
+                            break;
+                        case 3:
+                            break;
+                        case 4:
+                            break;
+                        case 5:
+                            break;
+                        case 6:
+                            break;
+                    }
+                    break;
+                case 3:
+                    break;
+            }
         }
     }
 }
