@@ -17,7 +17,7 @@ namespace Cajero
         private string nip;
         private string balance;
         private int accountIndex;
-        private int money;
+        private float money;
 
         private int atmMoney = 10000;
         private string textfilepath = @"C:\Users\ricar\Documents\GIT\Programacion-Avanzada\ATM\keys.txt";
@@ -29,9 +29,9 @@ namespace Cajero
         }
         public bool autenticate()
         {
-            string[] data = File.ReadAllLines(textfilepath);
-            accountIndex = 0;
-            foreach (string separar in data)
+            string[] data = File.ReadAllLines(textfilepath); //Guarda todos los datos de la BD en el arreglo string llamado data
+            accountIndex = 0; //Indice que nos ayudará a comparar el numero de cuenta y nip introducidos por el usuario por los de todas las cuentas.
+            foreach (string separar in data) 
             {
                 string[] separado = separar.Split(',');//Guarda en el arreglo todos los numeros de cuenta
                 if (!(f_nAccount == separado[0]))
@@ -44,21 +44,20 @@ namespace Cajero
                         return true;
                 }
             }
-
             Console.WriteLine("Cuenta no encontrada, intente de nuevo");
             return false;
         }
 
         public bool verifynip(string[] data, int accountIndex)
         {
-            accountData = data[accountIndex];
+            accountData = data[accountIndex]; //Se guarda toda la informacion de la cuenta 
             char[] sep = { ',' };
             string[] splitedaccountinfo = data[accountIndex].Split(sep, 3);
             Console.WriteLine(data[accountIndex]);
             nAccount = splitedaccountinfo[0];
             nip = splitedaccountinfo[1];
             balance = splitedaccountinfo[2];
-            money = Int32.Parse(balance);
+            money = float.Parse(balance);
             if (f_nip == nip)
                 return true;
             else
@@ -70,22 +69,20 @@ namespace Cajero
         }
         public bool Deposito(float depositBalance)
         {
-            string introduce;
-            //Console.WriteLine("Introduce en la bandeja un sobre con la cantidad de $"+depositBalance);
+            string introduce = "000";
+            Console.WriteLine("Introduce en la bandeja un sobre con la cantidad de $"+depositBalance);
+            DateTime tiempo1 = DateTime.Now;
+            TimeSpan requerido = new TimeSpan(00, 00, 02, 00); //Se crea un timespan al cual se le asigna el tiempo maximo el cual es de 2 minutos, esto para posteriormente compararlo
+ 
+            introduce = Convert.ToString(Console.ReadKey());//El usuario debe presionar una tecla (depositar el efectivo) para poder continuar.
+            DateTime tiempo2 = DateTime.Now;// Se calcula la hora exacta de el momento en el que el usuario deposito el efectivo
+            TimeSpan total = new TimeSpan(tiempo2.Ticks - tiempo1.Ticks);// Se resta el tiempo en el que el usuario deposito menos el tiempo en el que inicio la operacion, para calcular el tiempo demorado.
 
-            int min, seg;
-            for (min = 0; min < 2; min++)
+            if (TimeSpan.Compare(total, requerido) == 1)//Se comparada el tiempo demorado y el tiempo maximo, en dado caso de que el demorado(total) sea mayor, se le indica a el usuario que intente nuevamente.
             {
-                for (seg = 0; seg < 60; seg++)
-                {
-                    Console.Clear();
-                    Console.WriteLine("Introduce en la bandeja un sobre con la cantidad de $" + depositBalance);
-
-                    Console.WriteLine("Tiempo: " + min + " : " + seg);
-                    Thread.Sleep(500);
-                }
+                Console.WriteLine("Tiempo maximo en espera superado (2min) intenta nuevamente");
+                return false;
             }
-            introduce = Convert.ToString(Console.Read());
 
             string balance = "" + (money + depositBalance);
             string[] lines = File.ReadAllLines(textfilepath);
@@ -95,11 +92,9 @@ namespace Cajero
                 {
                     lines[i] = lines[i].Remove(12);
                     lines[i] = lines[i].Insert(12, balance);
-
                 }
             }
             File.WriteAllLines(textfilepath, lines);
-
             return true;
         }
         public void Saldo()
@@ -127,6 +122,7 @@ namespace Cajero
                 }
             }
             File.WriteAllLines(textfilepath, lines);
+            Console.Clear();
             Console.WriteLine("Puede tomar el efectivo");
             return true;
         }
@@ -192,13 +188,13 @@ namespace Cajero
                         return false;
                     break;
                 case 6:
+                    Console.Clear();
+                    return false;
                     break;
             }
             return true;
         }
     }
-
-
     class Program
     {
         static void Main(string[] args)
@@ -207,31 +203,29 @@ namespace Cajero
             String typednip;
         inicio:
             Console.WriteLine("Bienvenido! Introduce tu Numero de Cuenta");
-            nAccount = Convert.ToString(Console.ReadLine());
+            nAccount = Convert.ToString(Console.ReadLine()); 
             //Console.WriteLine(data[accountIndex]);
             Console.WriteLine("Introduce tu NIP de acceso");
             typednip = Convert.ToString(Console.ReadLine());
-            Console.WriteLine("NIP introducido: " + typednip);
-            Cuenta c1 = new Cuenta(nAccount, typednip);
+           // Console.WriteLine("NIP introducido: " + typednip);
+            Cuenta c1 = new Cuenta(nAccount, typednip); //Se crea el objeto c1 y se le manda como parámetro el numero de cuenta y el nip que introdujo el usuario
             bool verify = c1.autenticate();
             if (!verify) goto inicio;
             else
             {
                 Console.Clear();
-                MenuPrincipal(c1);
+                if (!MenuPrincipal(c1))
+                    goto inicio;
             }
 
         }
-        /*     private static bool verifynip(string[] data, int accountIndex)
-             {
-
-             }*/
-        private static void MenuPrincipal(/*string[] data, string[] splitedaccountinfo, int accountIndex*/Cuenta c1)
+        private static bool MenuPrincipal(/*string[] data, string[] splitedaccountinfo, int accountIndex*/Cuenta c1)
         {
-            int option;
             bool check;
             int depositBalance;
+            int option;
         Menu:
+            option = 0;
             Console.WriteLine("Introduce una opcion");
             Console.WriteLine("1: Consulta de Saldo");
             Console.WriteLine("2: Retiro de Saldo");
@@ -247,7 +241,9 @@ namespace Cajero
                     goto Menu;
                     break;
                 case 1:
+                    Console.Clear();
                     c1.Saldo();
+                    goto Menu;
                     break;
                 case 2:
                     Console.WriteLine("Elige el monto a retirar");
@@ -258,8 +254,15 @@ namespace Cajero
                     Console.WriteLine("5: $200");
                     Console.WriteLine("6: Cancelar Operacion");
                     option = Int32.Parse(Console.ReadLine());
+                    if(option==6)
+                    {
+                        Console.Clear();
+                        goto Menu;
+                    }
                     if (!c1.verifyRetiro(option))
                         goto case 2;
+                    else
+                        goto Menu;
                     break;
                 case 3:
                     Console.WriteLine("Introduce la cantidad a depositar, para cancelar introduzca 0");
@@ -274,13 +277,16 @@ namespace Cajero
                     {
                         realDepositBalance = depositBalance;
                         realDepositBalance /= 100;
-                        if (c1.Deposito(realDepositBalance)) goto Menu;
+                        c1.Deposito(realDepositBalance);
+                        Console.Clear();
+                            goto Menu;
                     }
                     break;
                 case 4:
-                    Console.WriteLine("Hasta luego!");
+                    return false;
                     break;
             }
+            return true;
         }
     }
 }
