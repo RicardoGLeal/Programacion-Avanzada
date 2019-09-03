@@ -17,11 +17,11 @@ namespace PlacasAutos
             int verifyIfNumber;
             int charString;
             string pathFile = "..\\..\\..\\sample.txt";
-            using (StreamReader sr = new StreamReader(pathFile))
+            using (StreamReader file = new StreamReader(pathFile))
             {
-                while (!sr.EndOfStream)
+                while (!file.EndOfStream)
                 {
-                    placaInfo = sr.ReadLine();
+                    placaInfo = file.ReadLine();
                     if (placaInfo[0] == 'J' || placaInfo[0] == 'H')//VERIFICACION DE QUE EL EL PRIMER ELEMENTO DE LA TERCIA SEA UNA LETRA
                     {
                         charString = placaInfo[1];
