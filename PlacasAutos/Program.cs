@@ -9,13 +9,14 @@ namespace PlacasAutos
     {
         private List<string> placas;
         private List<string> placasLote;
-        private string pathFile = "..\\..\\..\\sample.txt";
+        
         public void Validacion()
         {
             placas = new List<string>();
             String placaInfo;
             int verifyIfNumber;
             int charString;
+            string pathFile = "..\\..\\..\\sample.txt";
             using (StreamReader sr = new StreamReader(pathFile))
             {
                 while (!sr.EndOfStream)
