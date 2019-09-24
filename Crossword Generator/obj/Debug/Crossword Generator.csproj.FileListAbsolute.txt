@@ -1,0 +1,11 @@
+C:\Users\ricar\Documents\GIT\Programacion-Avanzada\Crossword Generator\bin\Debug\Crossword Generator.exe.config
+C:\Users\ricar\Documents\GIT\Programacion-Avanzada\Crossword Generator\bin\Debug\Crossword Generator.exe
+C:\Users\ricar\Documents\GIT\Programacion-Avanzada\Crossword Generator\bin\Debug\Crossword Generator.pdb
+C:\Users\ricar\Documents\GIT\Programacion-Avanzada\Crossword Generator\obj\Debug\Crossword Generator.csprojAssemblyReference.cache
+C:\Users\ricar\Documents\GIT\Programacion-Avanzada\Crossword Generator\obj\Debug\Crossword_Generator.Properties.Resources.resources
+C:\Users\ricar\Documents\GIT\Programacion-Avanzada\Crossword Generator\obj\Debug\Crossword Generator.csproj.GenerateResource.cache
+C:\Users\ricar\Documents\GIT\Programacion-Avanzada\Crossword Generator\obj\Debug\Crossword Generator.csproj.CoreCompileInputs.cache
+C:\Users\ricar\Documents\GIT\Programacion-Avanzada\Crossword Generator\obj\Debug\Crossword Generator.exe
+C:\Users\ricar\Documents\GIT\Programacion-Avanzada\Crossword Generator\obj\Debug\Crossword Generator.pdb
+C:\Users\ricar\Documents\GIT\Programacion-Avanzada\Crossword Generator\obj\Debug\Crossword_Generator.Pistas.resources
+C:\Users\ricar\Documents\GIT\Programacion-Avanzada\Crossword Generator\obj\Debug\Crossword_Generator.Form1.resources
