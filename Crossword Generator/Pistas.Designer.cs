@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.mainTable = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,6 +47,14 @@
             this.Column1,
             this.Column2,
             this.Column3});
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.471698F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.mainTable.DefaultCellStyle = dataGridViewCellStyle1;
             this.mainTable.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainTable.Location = new System.Drawing.Point(0, 0);
             this.mainTable.Name = "mainTable";
@@ -54,12 +63,14 @@
             this.mainTable.RowHeadersWidth = 45;
             this.mainTable.Size = new System.Drawing.Size(464, 450);
             this.mainTable.TabIndex = 0;
+            this.mainTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.MainTable_CellContentClick);
             // 
             // Column1
             // 
             this.Column1.HeaderText = "#";
             this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             this.Column1.Width = 30;
             // 
             // Column2
@@ -67,6 +78,7 @@
             this.Column2.HeaderText = "Dirección";
             this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
             this.Column2.Width = 110;
             // 
             // Column3
@@ -75,6 +87,7 @@
             this.Column3.HeaderText = "Pista";
             this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
             // 
             // Pistas
             // 

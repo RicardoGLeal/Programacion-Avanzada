@@ -16,5 +16,10 @@ namespace Crossword_Generator
         {
             InitializeComponent();
         }
+
+        private void MainTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
