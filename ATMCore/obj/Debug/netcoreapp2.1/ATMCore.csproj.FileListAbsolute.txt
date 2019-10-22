@@ -1,0 +1,10 @@
+C:\Users\ricar\source\repos\ATMCore\bin\Debug\netcoreapp2.1\ATMCore.deps.json
+C:\Users\ricar\source\repos\ATMCore\bin\Debug\netcoreapp2.1\ATMCore.runtimeconfig.json
+C:\Users\ricar\source\repos\ATMCore\bin\Debug\netcoreapp2.1\ATMCore.runtimeconfig.dev.json
+C:\Users\ricar\source\repos\ATMCore\bin\Debug\netcoreapp2.1\ATMCore.dll
+C:\Users\ricar\source\repos\ATMCore\obj\Debug\netcoreapp2.1\ATMCore.csprojAssemblyReference.cache
+C:\Users\ricar\source\repos\ATMCore\obj\Debug\netcoreapp2.1\ATMCore.AssemblyInfoInputs.cache
+C:\Users\ricar\source\repos\ATMCore\obj\Debug\netcoreapp2.1\ATMCore.AssemblyInfo.cs
+C:\Users\ricar\source\repos\ATMCore\bin\Debug\netcoreapp2.1\ATMCore.pdb
+C:\Users\ricar\source\repos\ATMCore\obj\Debug\netcoreapp2.1\ATMCore.dll
+C:\Users\ricar\source\repos\ATMCore\obj\Debug\netcoreapp2.1\ATMCore.pdb

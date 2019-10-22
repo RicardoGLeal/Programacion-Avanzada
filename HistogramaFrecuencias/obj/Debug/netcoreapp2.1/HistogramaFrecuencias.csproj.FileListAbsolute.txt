@@ -1,0 +1,11 @@
+C:\Users\ricar\Documents\GIT\Programacion-Avanzada\HistogramaFrecuencias\bin\Debug\netcoreapp2.1\HistogramaFrecuencias.deps.json
+C:\Users\ricar\Documents\GIT\Programacion-Avanzada\HistogramaFrecuencias\bin\Debug\netcoreapp2.1\HistogramaFrecuencias.runtimeconfig.json
+C:\Users\ricar\Documents\GIT\Programacion-Avanzada\HistogramaFrecuencias\bin\Debug\netcoreapp2.1\HistogramaFrecuencias.runtimeconfig.dev.json
+C:\Users\ricar\Documents\GIT\Programacion-Avanzada\HistogramaFrecuencias\bin\Debug\netcoreapp2.1\HistogramaFrecuencias.dll
+C:\Users\ricar\Documents\GIT\Programacion-Avanzada\HistogramaFrecuencias\bin\Debug\netcoreapp2.1\HistogramaFrecuencias.pdb
+C:\Users\ricar\Documents\GIT\Programacion-Avanzada\HistogramaFrecuencias\obj\Debug\netcoreapp2.1\HistogramaFrecuencias.csprojAssemblyReference.cache
+C:\Users\ricar\Documents\GIT\Programacion-Avanzada\HistogramaFrecuencias\obj\Debug\netcoreapp2.1\HistogramaFrecuencias.csproj.CoreCompileInputs.cache
+C:\Users\ricar\Documents\GIT\Programacion-Avanzada\HistogramaFrecuencias\obj\Debug\netcoreapp2.1\HistogramaFrecuencias.AssemblyInfoInputs.cache
+C:\Users\ricar\Documents\GIT\Programacion-Avanzada\HistogramaFrecuencias\obj\Debug\netcoreapp2.1\HistogramaFrecuencias.AssemblyInfo.cs
+C:\Users\ricar\Documents\GIT\Programacion-Avanzada\HistogramaFrecuencias\obj\Debug\netcoreapp2.1\HistogramaFrecuencias.dll
+C:\Users\ricar\Documents\GIT\Programacion-Avanzada\HistogramaFrecuencias\obj\Debug\netcoreapp2.1\HistogramaFrecuencias.pdb
