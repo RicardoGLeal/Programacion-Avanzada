@@ -1,0 +1,9 @@
+C:\Users\ricar\Documents\GIT\Programacion-Avanzada\NorthWindWeb\Part3\NorthwindContextLib\bin\Debug\netcoreapp2.1\NorthwindContextLib.deps.json
+C:\Users\ricar\Documents\GIT\Programacion-Avanzada\NorthWindWeb\Part3\NorthwindContextLib\bin\Debug\netcoreapp2.1\NorthwindContextLib.dll
+C:\Users\ricar\Documents\GIT\Programacion-Avanzada\NorthWindWeb\Part3\NorthwindContextLib\obj\Debug\netcoreapp2.1\NorthwindContextLib.csprojAssemblyReference.cache
+C:\Users\ricar\Documents\GIT\Programacion-Avanzada\NorthWindWeb\Part3\NorthwindContextLib\bin\Debug\netcoreapp2.1\NorthwindContextLib.pdb
+C:\Users\ricar\Documents\GIT\Programacion-Avanzada\NorthWindWeb\Part3\NorthwindContextLib\bin\Debug\netcoreapp2.1\NorthwindEntitiesLib.dll
+C:\Users\ricar\Documents\GIT\Programacion-Avanzada\NorthWindWeb\Part3\NorthwindContextLib\bin\Debug\netcoreapp2.1\NorthwindEntitiesLib.pdb
+C:\Users\ricar\Documents\GIT\Programacion-Avanzada\NorthWindWeb\Part3\NorthwindContextLib\obj\Debug\netcoreapp2.1\NorthwindContextLib.csproj.CopyComplete
+C:\Users\ricar\Documents\GIT\Programacion-Avanzada\NorthWindWeb\Part3\NorthwindContextLib\obj\Debug\netcoreapp2.1\NorthwindContextLib.dll
+C:\Users\ricar\Documents\GIT\Programacion-Avanzada\NorthWindWeb\Part3\NorthwindContextLib\obj\Debug\netcoreapp2.1\NorthwindContextLib.pdb

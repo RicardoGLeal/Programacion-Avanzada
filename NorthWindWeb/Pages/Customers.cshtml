@@ -1,0 +1,20 @@
+﻿@page
+@model NorthWindWeb.Pages.CustomersModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{ string country = "f";}
+<h1 class="display-2">Customers</h1>
+<tbody>
+    <ul>
+        @foreach (var item in Model.Customers)
+        {
+            if (country != item.Country)
+            {
+                <br />
+                country = item.Country;
+                <b><h>@country</h></b>
+            }
+            <a asp-page="./customerinfo" asp-route-id="@item.CustomerID"><li>@Html.DisplayFor(modelItem => item.ContactName)</li></a>
+        }
+    </ul>
+</tbody>
+

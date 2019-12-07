@@ -1,0 +1,65 @@
+﻿@page
+@model NorthWindWeb.Pages.CustomerInfoModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<div class="row">
+    <h1 class="display-2">Informacion del Usuario</h1>
+    <table class="table">
+        <thead class="thead-inverse">
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.Customer.CustomerID)</th>
+                <th>@Html.DisplayNameFor(model => model.Customer.CompanyName)</th>
+                <th>@Html.DisplayNameFor(model => model.Customer.ContactName)</th>
+                <th>@Html.DisplayNameFor(model => model.Customer.ContactTitle)</th>
+                <th>@Html.DisplayNameFor(model => model.Customer.Country)</th>
+                <th>@Html.DisplayNameFor(model => model.Customer.City)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => modelItem.Customer.CustomerID);
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => modelItem.Customer.CompanyName);
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => modelItem.Customer.ContactName);
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => modelItem.Customer.ContactTitle);
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => modelItem.Customer.Country);
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => modelItem.Customer.City);
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>
+<br />
+<h2>Lista de Ordenes del Usuario: </h2>
+@foreach (var item in Model.Orders)
+{
+
+    <p><b>OrderID: </b> @Html.DisplayFor(modelItem => item.OrderID)</p>
+    <p><b>CustomerID: </b> @Html.DisplayFor(modelItem => item.CustomerID)</p>
+    <p><b>EmployeeID: </b> @Html.DisplayFor(modelItem => item.EmployeeID)</p>
+    <p><b>OrderDate: </b>@Html.DisplayFor(modelItem => item.OrderDate)</p>
+    <p><b>RequiredDate: </b>@Html.DisplayFor(modelItem => item.RequiredDate)</p>
+    <p><b>ShippedDate: </b>@Html.DisplayFor(modelItem => item.ShippedDate)</p>
+    <p><b>ShipVia: </b>@Html.DisplayFor(modelItem => item.ShipVia)</p>
+    <p><b>Freight: </b>@Html.DisplayFor(modelItem => item.Freight)</p>
+    <p><b>ShipName: </b>@Html.DisplayFor(modelItem => item.ShipName)</p>
+    <p><b>ShipAddress: </b>@Html.DisplayFor(modelItem => item.ShipAddress)</p>
+    <p><b>ShipCity: </b>@Html.DisplayFor(modelItem => item.ShipCity)</p>
+    <p><b>ShipRegion: </b>@Html.DisplayFor(modelItem => item.ShipRegion)</p>
+    <p><b>ShipPostalCode: </b>@Html.DisplayFor(modelItem => item.ShipPostalCode)</p>
+    <p><b>ShipCountry: </b>@Html.DisplayFor(modelItem => item.ShipCountry)</p>
+
+    <br />
+}
+
