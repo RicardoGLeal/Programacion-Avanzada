@@ -13,10 +13,7 @@ namespace TeachersPermissions.Controllers
     {
         private readonly SchoolContext _context;
 
-        public EmployeesController(SchoolContext context)
-        {
-            _context = context;
-        }
+
 
         // GET: Employees
         public async Task<IActionResult> Index()

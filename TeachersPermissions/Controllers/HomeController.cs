@@ -39,12 +39,12 @@ namespace TeachersPermissions.Controllers
                 var lstModel = new List<SimpleReportViewModel>();
                 double quant, porcent;
                 int res;
-                double promedio=0;
+                double promedio = 0;
                 foreach (var item in _context.Employee)
                 {
                     quant = _context.Permission.Where(n => n.EmployeeId == item.EmployeeId).Count();
-                       // porcent = quant / permissionsNum * 100;
-                        res = (int)quant;
+                    // porcent = quant / permissionsNum * 100;
+                    res = (int)quant;
                     promedio += quant;
                     lstModel.Add(new SimpleReportViewModel { DimensionOne = item.EmployeeId.ToString() + " " + item.FirstName + " " + item.FirstLastName, Quantity = res });
                 }
